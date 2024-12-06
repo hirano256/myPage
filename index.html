@@ -35,6 +35,20 @@
       button:hover {
         background: #45a049;
       }
+      a {
+        color: #4caf50;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .phone-icon {
+        width: 20px; /* アイコンのサイズを調整 */
+        margin-right: 8px;
+      }
     </style>
   </head>
   <body>
@@ -45,6 +59,16 @@
       <button onclick="location.href='mailto:harukihirano@outlook.jp'">
         追加する
       </button>
+      <p>
+        <a href="tel:+81123456789">
+          <img
+            src="https://img.icons8.com/ios-filled/50/000000/phone.png"
+            alt="電話"
+            class="phone-icon"
+          />
+          +81-1234-56789
+        </a>
+      </p>
     </div>
   </body>
 </html>
