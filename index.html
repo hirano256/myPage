@@ -116,7 +116,7 @@
     <div class="card">
       <p class="roman">ひらの　はるき</p>
       <h1 class="kanji">平野 晴己</h1>
-      <p class="subtitle">名古屋市立久方中学校3年生(14歳)</p>
+      <p class="subtitle">生年月日：2012年1月2日<br>年齢：<span id="age"></span>歳<br><span id="grade"></span></p>
 
       <div class="section">
         <h2>Contact</h2>
@@ -176,8 +176,50 @@
         },
       });
     </script>
+
+<script>
+  // 生年月日
+  const birthDate = new Date(2012, 0, 2);
+
+  const today = new Date();
+
+  // 年齢計算
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  document.getElementById("age").textContent = age;
+
+  // 学年計算（日本の4月スタート）
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
+
+  let gradeYear = year - 2018; // ←小1が2018年入学の場合
+
+  if (month < 4) {
+    gradeYear--;
+  }
+
+  let gradeText = "";
+
+  if (gradeYear <= 6) {
+    gradeText = "小学校" + gradeYear + "年生";
+  } else if (gradeYear <= 9) {
+    gradeText = "中学校" + (gradeYear - 6) + "年生";
+  } else if (gradeYear <= 12) {
+    gradeText = "高校" + (gradeYear - 9) + "年生";
+  } else {
+    gradeText = "卒業";
+  }
+
+  document.getElementById("grade").textContent = gradeText;
+</script>
   </body>
 </html>
+
 
 <!-- <!DOCTYPE html>
 <html lang="ja">
